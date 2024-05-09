@@ -1,0 +1,6 @@
+rootProject.name = 'multi-module'
+
+include 'api-server'
+include 'domain'
+include 'infra'
+include 'support:exception'

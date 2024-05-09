@@ -1,0 +1,11 @@
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':infra')
+
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'com.google.code.gson:gson:2.8.7'
+
+}
