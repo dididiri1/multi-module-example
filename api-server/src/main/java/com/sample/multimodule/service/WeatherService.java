@@ -30,9 +30,6 @@ public class WeatherService {
     private final RestTemplate restTemplate;
 
     private final WeatherStore weatherStore;
-
-    private static final List<Integer> BASE_TIMES = Arrays.asList(2, 5, 8, 11, 14, 17, 20, 23);
-
     private final String API = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=je3xpfccvODTTa7rHpRbmnGRBdergDEDfSA%2B3yGjgXbRz6g35AmYmEgFK83JAX%2BuyT4A1Etldb8TzkSNsoQQqw%3D%3D&pageNo=1&numOfRows=10&dataType=JSON&base_date=20240508&base_time=0500&nx=61&ny=131";
 
     @Transactional
@@ -44,8 +41,6 @@ public class WeatherService {
         String baseTime = calculateBaseTime(now);
 
         String apiUrl = getApiUrl(serviceKey, baseDate, baseTime, 1, 30, 61, 131);;
-
-        System.out.println("apiUrl = " + apiUrl);
 
         URI uri = new URI(apiUrl);
         ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET, null, String.class);
@@ -91,8 +86,6 @@ public class WeatherService {
                 + "&nx=" + nx
                 + "&ny=" + ny;
     }
-
-
 
     public WeatherCreateRequest jsonToWeatherEntity(String jsonResponse, String baseTime) {
         Gson gson = new Gson();
