@@ -25,12 +25,17 @@ public class Weather {
 
     private String precipitationState;
 
+    private int humidity;
+
+    private String baseTime;
 
     @Builder
-    public Weather(Long id, int temperature, String skyState, String precipitationState) {
+    public Weather(Long id, int temperature, String skyState, String precipitationState, int humidity, String baseTime) {
         this.id = id;
         this.temperature = temperature;
         this.skyState = skyState;
         this.precipitationState = precipitationState;
+        this.humidity = humidity;
+        this.baseTime = baseTime;
     }
 }

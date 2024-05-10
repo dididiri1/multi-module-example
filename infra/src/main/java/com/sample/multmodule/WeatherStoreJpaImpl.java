@@ -21,6 +21,8 @@ public class WeatherStoreJpaImpl implements WeatherStore {
                 .precipitationState(weatherCreateRequest.getPrecipitationState())
                 .temperature(weatherCreateRequest.getTemperature())
                 .skyState(weatherCreateRequest.getSkyState())
+                .humidity(weatherCreateRequest.getHumidity())
+                .baseTime(weatherCreateRequest.getBaseTime())
                 .build();
 
         weatherRepositoryJpa.save(weather);
@@ -35,10 +37,11 @@ public class WeatherStoreJpaImpl implements WeatherStore {
         }
 
         return WeatherResponse.builder()
-                .id(weather.getId())
                 .precipitationState(weather.getPrecipitationState())
                 .temperature(weather.getTemperature())
                 .skyState(weather.getSkyState())
+                .humidity(weather.getHumidity())
+                .baseTime(weather.getBaseTime())
                 .build();
     }
 

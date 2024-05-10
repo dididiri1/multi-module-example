@@ -1,0 +1,7 @@
+### 날짜 생성
+POST localhost:8080/api/weather
+Content-Type: application/json
+
+### 날짜 조회
+GET localhost:8080/api/weather
+Content-Type: application/json
